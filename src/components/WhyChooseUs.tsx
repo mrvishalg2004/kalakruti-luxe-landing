@@ -26,39 +26,54 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-muted/20 to-background relative">
+      <div className="absolute inset-0 pattern-dots opacity-20"></div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="text-center mb-20 animate-fade-in-up">
+          <div className="inline-block mb-6">
+            <div className="h-1 w-32 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto"></div>
+          </div>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6">
             Why Choose <span className="text-gradient-gold">Kalakruti</span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Experience the difference of authentic craftsmanship and dedicated artistry
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
           {reasons.map((reason, index) => {
             const Icon = reason.icon;
             return (
               <Card 
                 key={index}
-                className="border-2 border-border hover:border-gold/50 transition-all duration-300 hover-lift shadow-lg bg-gradient-to-br from-card to-card/80"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="border-2 border-border hover:border-gold/60 transition-all duration-500 hover-lift shadow-luxury bg-gradient-to-br from-card via-card to-muted/30 group overflow-hidden animate-fade-in-scale"
+                style={{ animationDelay: `${index * 0.15}s` }}
               >
-                <CardHeader>
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-gold/20 to-gold/10 border-2 border-gold/30 flex items-center justify-center mb-4">
-                    <Icon className="w-8 h-8 text-gold" />
+                {/* Top Gradient Border */}
+                <div className="h-1 bg-gradient-to-r from-gold via-emerald to-maroon opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <CardHeader className="relative">
+                  <div className="flex items-start gap-6">
+                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-gold/30 via-gold/20 to-emerald/20 border-2 border-gold/40 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-gold-glow">
+                      <Icon className="w-10 h-10 text-gold" />
+                    </div>
+                    <div className="flex-1 pt-2">
+                      <CardTitle className="text-2xl lg:text-3xl font-serif text-primary group-hover:text-gradient-gold transition-all duration-300 mb-2">
+                        {reason.title}
+                      </CardTitle>
+                    </div>
                   </div>
-                  <CardTitle className="text-2xl font-serif text-primary">
-                    {reason.title}
-                  </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground leading-relaxed">
+                <CardContent className="pt-0">
+                  <p className="text-base lg:text-lg text-muted-foreground leading-relaxed pl-0 md:pl-26">
                     {reason.description}
                   </p>
                 </CardContent>
+
+                {/* Decorative corner elements */}
+                <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-gold/5 to-transparent rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </Card>
             );
           })}
