@@ -1,6 +1,5 @@
-import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
-import heroBackground from "@/assets/hero-nature-bg.jpg";
+import heroBackground from "@/assets/hero-embroidery-bg.png";
 
 const Hero = () => {
   return (
@@ -17,23 +16,10 @@ const Hero = () => {
 
       {/* Content Container */}
       <div className="relative z-10 flex flex-col items-center justify-center text-center px-8 py-32">
-        {/* Success Stories Label */}
-        <p className="text-white/90 text-lg md:text-xl font-serif italic mb-8 tracking-wide">
-          Success Stories
-        </p>
-
         {/* Main Headline */}
         <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white uppercase tracking-wider leading-tight mb-12 max-w-5xl">
           START WITH YOU
         </h1>
-
-        {/* CTA Button */}
-        <Button 
-          size="lg"
-          className="bg-teal hover:bg-teal/90 text-white border-0 transition-all duration-300 px-12 py-6 text-base font-semibold tracking-wider rounded-full shadow-lg hover:shadow-xl"
-        >
-          LEARN MORE
-        </Button>
       </div>
 
       {/* Scroll Down Indicator */}
