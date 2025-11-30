@@ -53,6 +53,7 @@ export default {
           mid: "hsl(var(--purple-mid))",
           light: "hsl(var(--purple-light))",
         },
+        teal: "hsl(var(--teal))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
