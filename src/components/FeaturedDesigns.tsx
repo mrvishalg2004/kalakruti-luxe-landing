@@ -68,17 +68,21 @@ const FeaturedDesigns = () => {
           opts={{
             align: "start",
             loop: true,
+            dragFree: true,
+            skipSnaps: false,
           }}
           plugins={[
             Autoplay({
-              delay: 5000,
+              delay: 3000,
+              stopOnInteraction: false,
+              stopOnMouseEnter: true,
             }),
           ]}
           className="w-full"
         >
           <CarouselContent className="-ml-4">
-            {designs.map((design, index) => (
-              <CarouselItem key={design.id} className="pl-4 md:basis-1/2 lg:basis-1/3 animate-fade-in-scale" style={{ animationDelay: `${index * 0.1}s` }}>
+            {[...designs, ...designs, ...designs].map((design, index) => (
+              <CarouselItem key={`${design.id}-${index}`} className="pl-4 md:basis-1/2 lg:basis-1/3 animate-fade-in-scale" style={{ animationDelay: `${index * 0.1}s` }}>
                 <Card className="border-2 border-gold/40 hover:border-gold/80 transition-all duration-500 hover-lift overflow-hidden bg-card/95 backdrop-blur-md shadow-luxury group">
                   <CardContent className="p-0">
                     <div className="relative overflow-hidden aspect-[3/4]">

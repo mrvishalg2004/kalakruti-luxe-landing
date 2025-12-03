@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f7a8b8"/>
+      <stop offset="50%" stop-color="#ffd6a5"/>
+      <stop offset="100%" stop-color="#bde0fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g)" />
+  <g fill="none" stroke="#ffffff33" stroke-width="4">
+    <circle cx="300" cy="220" r="180"/>
+    <circle cx="1300" cy="700" r="220"/>
+    <path d="M200 700 C 400 500, 800 300, 1200 500" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(120 160)" fill="#ffffff88" font-family="Inter, Roboto, sans-serif">
+    <text x="0" y="0" font-size="48" font-weight="700">Kalakruti Luxe</text>
+    <text x="0" y="60" font-size="22">Custom embroidery & luxe finishes</text>
+  </g>
+</svg>

@@ -24,54 +24,161 @@ const Showcase = () => {
   ];
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-muted/50 via-background to-muted/30 relative">
-      <div className="absolute inset-0 pattern-dots opacity-30"></div>
+    <section className="relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Dynamic Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-rose-50 via-amber-50 to-purple-50"></div>
       
+      {/* Floating Shapes */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-amber-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+      <div className="absolute top-40 right-10 w-72 h-72 bg-rose-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+      <div className="absolute -bottom-20 left-1/2 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-20 animate-fade-in-up">
-          <div className="inline-block mb-4">
-            <div className="h-1 w-24 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-6"></div>
-          </div>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6">
-            <span className="text-gradient-gold">Exquisite Designs</span>
+        {/* Creative Header */}
+        <div className="text-center mb-20">
+          <span className="inline-block px-6 py-2 bg-amber-500/10 backdrop-blur-sm rounded-full text-amber-700 font-semibold text-sm mb-6 border border-amber-200">
+            ✨ Handcrafted Excellence
+          </span>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-amber-600 via-rose-500 to-purple-600 text-transparent bg-clip-text">
+              Exquisite Designs
+            </span>
           </h2>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Each piece tells a story of meticulous craftsmanship and timeless beauty
+          <p className="text-xl text-gray-700 max-w-2xl mx-auto font-light leading-relaxed">
+            Each piece tells a story of <span className="font-semibold text-amber-600">meticulous craftsmanship</span> and <span className="font-semibold text-rose-600">timeless beauty</span>
           </p>
         </div>
 
-        <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
-          {galleryItems.map((item, index) => (
-            <div 
-              key={item.id}
-              className="break-inside-avoid group cursor-pointer animate-fade-in-scale"
-              style={{ animationDelay: `${index * 0.05}s` }}
-            >
-              <div className="relative overflow-hidden rounded-2xl shadow-luxury hover-lift bg-card border-2 border-border hover:border-gold/60 transition-all duration-500">
-                <div className="absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-emerald/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
-                
-                <img 
-                  src={item.src} 
-                  alt={item.alt}
-                  className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700"
-                  loading="lazy"
-                />
-                
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end justify-center pb-8 z-20">
-                  <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <div className="w-16 h-1.5 bg-gradient-to-r from-gold via-gold to-emerald rounded-full mb-3 shadow-gold-glow"></div>
-                    <p className="text-gold text-sm font-medium uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">View Details</p>
-                  </div>
-                </div>
-
-                {/* Corner Accent */}
-                <div className="absolute top-0 right-0 w-16 h-16 border-t-4 border-r-4 border-gold/0 group-hover:border-gold/50 rounded-tr-2xl transition-all duration-500"></div>
-                <div className="absolute bottom-0 left-0 w-16 h-16 border-b-4 border-l-4 border-gold/0 group-hover:border-gold/50 rounded-bl-2xl transition-all duration-500"></div>
+        {/* Interactive Bento Grid */}
+        <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-4 auto-rows-[200px]">
+          {/* Large Feature - Item 1 */}
+          <div className="col-span-4 md:col-span-4 lg:col-span-6 row-span-2 group relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-amber-500/20 transition-all duration-500">
+            <img 
+              src={galleryItems[0].src} 
+              alt={galleryItems[0].alt}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-amber-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <div className="absolute bottom-6 left-6 right-6">
+                <div className="w-20 h-1 bg-amber-400 mb-3"></div>
+                <h3 className="text-white text-2xl font-bold">Featured Design</h3>
               </div>
             </div>
-          ))}
+          </div>
+
+          {/* Item 2 */}
+          <div className="col-span-2 md:col-span-2 lg:col-span-3 row-span-1 group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-rose-500/20 transition-all duration-500 hover:-translate-y-2">
+            <img 
+              src={galleryItems[1].src} 
+              alt={galleryItems[1].alt}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-rose-600/0 group-hover:bg-rose-600/30 transition-colors duration-500"></div>
+          </div>
+
+          {/* Item 3 */}
+          <div className="col-span-2 md:col-span-2 lg:col-span-3 row-span-1 group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-purple-500/20 transition-all duration-500 hover:-translate-y-2">
+            <img 
+              src={galleryItems[2].src} 
+              alt={galleryItems[2].alt}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-purple-600/0 group-hover:bg-purple-600/30 transition-colors duration-500"></div>
+          </div>
+
+          {/* Item 4 - Tall */}
+          <div className="col-span-2 md:col-span-2 lg:col-span-3 row-span-2 group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-amber-500/20 transition-all duration-500 hover:-translate-y-2">
+            <img 
+              src={galleryItems[3].src} 
+              alt={galleryItems[3].alt}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-amber-900/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          </div>
+
+          {/* Item 5 */}
+          <div className="col-span-2 md:col-span-2 lg:col-span-3 row-span-1 group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-rose-500/20 transition-all duration-500 hover:-translate-y-2">
+            <img 
+              src={galleryItems[4].src} 
+              alt={galleryItems[4].alt}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-rose-600/0 group-hover:bg-rose-600/30 transition-colors duration-500"></div>
+          </div>
+
+          {/* Large Feature - Item 6 */}
+          <div className="col-span-4 md:col-span-4 lg:col-span-6 row-span-2 group relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-purple-500/20 transition-all duration-500">
+            <img 
+              src={galleryItems[5].src} 
+              alt={galleryItems[5].alt}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <div className="absolute bottom-6 left-6 right-6">
+                <div className="w-20 h-1 bg-purple-400 mb-3"></div>
+                <h3 className="text-white text-2xl font-bold">Premium Collection</h3>
+              </div>
+            </div>
+          </div>
+
+          {/* Item 7 */}
+          <div className="col-span-2 md:col-span-2 lg:col-span-3 row-span-1 group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-amber-500/20 transition-all duration-500 hover:-translate-y-2">
+            <img 
+              src={galleryItems[6].src} 
+              alt={galleryItems[6].alt}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-amber-600/0 group-hover:bg-amber-600/30 transition-colors duration-500"></div>
+          </div>
+
+          {/* Item 8 */}
+          <div className="col-span-2 md:col-span-2 lg:col-span-3 row-span-1 group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-rose-500/20 transition-all duration-500 hover:-translate-y-2">
+            <img 
+              src={galleryItems[7].src} 
+              alt={galleryItems[7].alt}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-rose-600/0 group-hover:bg-rose-600/30 transition-colors duration-500"></div>
+          </div>
+
+          {/* Item 9 */}
+          <div className="col-span-2 md:col-span-2 lg:col-span-3 row-span-1 group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-purple-500/20 transition-all duration-500 hover:-translate-y-2">
+            <img 
+              src={galleryItems[8].src} 
+              alt={galleryItems[8].alt}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-purple-600/0 group-hover:bg-purple-600/30 transition-colors duration-500"></div>
+          </div>
+
+          {/* Item 10 */}
+          <div className="col-span-2 md:col-span-2 lg:col-span-3 row-span-1 group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-amber-500/20 transition-all duration-500 hover:-translate-y-2">
+            <img 
+              src={galleryItems[9].src} 
+              alt={galleryItems[9].alt}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-amber-600/0 group-hover:bg-amber-600/30 transition-colors duration-500"></div>
+          </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes blob {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          33% { transform: translate(30px, -50px) scale(1.1); }
+          66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+        .animate-blob {
+          animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+          animation-delay: 4s;
+        }
+      `}</style>
     </section>
   );
 };
