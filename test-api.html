@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Test</title>
+</head>
+<body>
+    <h1>Review API Test</h1>
+    <button onclick="testHealth()">Test Health</button>
+    <button onclick="testReviews()">Get Reviews</button>
+    <button onclick="submitReview()">Submit Test Review</button>
+    <pre id="output"></pre>
+
+    <script>
+        const API_URL = 'http://localhost:5000/api';
+        const output = document.getElementById('output');
+
+        async function testHealth() {
+            try {
+                const res = await fetch(`${API_URL}/health`);
+                const data = await res.json();
+                output.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                output.textContent = 'Error: ' + error.message;
+            }
+        }
+
+        async function testReviews() {
+            try {
+                const res = await fetch(`${API_URL}/reviews`);
+                const data = await res.json();
+                output.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                output.textContent = 'Error: ' + error.message;
+            }
+        }
+
+        async function submitReview() {
+            try {
+                const res = await fetch(`${API_URL}/reviews`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: 'Test User',
+                        role: 'Customer',
+                        content: 'This is a test review',
+                        rating: 5
+                    })
+                });
+                const data = await res.json();
+                output.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                output.textContent = 'Error: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>

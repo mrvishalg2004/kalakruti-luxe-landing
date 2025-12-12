@@ -5,6 +5,7 @@ import About from "@/components/About";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import FeaturedDesigns from "@/components/FeaturedDesigns";
 import Testimonials from "@/components/Testimonials";
+import ReviewSection from "@/components/ReviewSection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
@@ -18,6 +19,7 @@ const Index = () => {
       <WhyChooseUs />
       <FeaturedDesigns />
       <Testimonials />
+      <ReviewSection />
       <Footer />
       <WhatsAppButton />
     </div>

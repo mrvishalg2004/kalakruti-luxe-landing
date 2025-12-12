@@ -7,7 +7,7 @@ const Hero = () => {
   const handleDownloadCatalog = () => {
     // Create a link element to trigger download
     const link = document.createElement('a');
-    link.href = '/catalog.pdf'; // Update this path to your actual catalog file
+    link.href = '/Kalakruti-Catalog.pdf'; // Update this path to your actual catalog file
     link.download = 'Kalakruti-Catalog.pdf';
     document.body.appendChild(link);
     link.click();
