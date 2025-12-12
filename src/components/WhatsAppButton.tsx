@@ -2,7 +2,7 @@ import whatsappIcon from "@/assets/whatsapp-icon.svg";
 
 const WhatsAppButton = () => {
   const phoneNumber = "919225546913"; // +91 92255 46913 in international format without spaces
-  const presetMessage = encodeURIComponent("Hi..");
+  const presetMessage = encodeURIComponent("Hello, I want to know more.");
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${presetMessage}`;
 
   return (

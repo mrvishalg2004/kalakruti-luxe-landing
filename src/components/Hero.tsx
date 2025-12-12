@@ -1,8 +1,19 @@
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Download } from "lucide-react";
 import heroBackground from "@/assets/hero image.jpg";
 import logo from "@/assets/mylogo.png";
+import { Button } from "@/components/ui/button";
 
 const Hero = () => {
+  const handleDownloadCatalog = () => {
+    // Create a link element to trigger download
+    const link = document.createElement('a');
+    link.href = '/catalog.pdf'; // Update this path to your actual catalog file
+    link.download = 'Kalakruti-Catalog.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900">
       {/* Background Image with Overlay */}
@@ -29,6 +40,18 @@ const Hero = () => {
             loading="eager"
             fetchPriority="high"
           />
+        </div>
+
+        {/* Download Catalog Button */}
+        <div className="download-button-wrapper mt-8">
+          <Button
+            onClick={handleDownloadCatalog}
+            className="group relative bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 hover:from-amber-500 hover:via-yellow-600 hover:to-amber-500 text-gray-900 font-bold px-10 py-7 text-lg md:text-xl rounded-full shadow-2xl hover:shadow-amber-500/50 transition-all duration-500 hover:scale-110 flex items-center gap-3 overflow-hidden"
+          >
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></span>
+            <Download className="w-6 h-6 group-hover:animate-bounce relative z-10" />
+            <span className="relative z-10 tracking-wide">Download Catalog</span>
+          </Button>
         </div>
       </div>
 
@@ -61,6 +84,15 @@ const Hero = () => {
             transform: translateY(-20px) scale(1.05);
           }
         }
+
+        @keyframes pulse-glow {
+          0%, 100% {
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.5), 0 0 40px rgba(251, 191, 36, 0.3), 0 0 60px rgba(251, 191, 36, 0.1);
+          }
+          50% {
+            box-shadow: 0 0 30px rgba(251, 191, 36, 0.8), 0 0 60px rgba(251, 191, 36, 0.5), 0 0 90px rgba(251, 191, 36, 0.3);
+          }
+        }
         
         .logo-container img {
           animation: fadeInScale 1.5s ease-out forwards;
@@ -68,6 +100,14 @@ const Hero = () => {
         
         .logo-container:hover img {
           animation: float 3s ease-in-out infinite;
+        }
+
+        .download-button-wrapper button {
+          animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        .download-button-wrapper button:hover {
+          animation: none;
         }
       `}} />
     </section>
