@@ -50,18 +50,34 @@ const ReviewSection = () => {
   const fetchReviews = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`${API_URL}/reviews`);
+      console.log('Fetching reviews from:', `${API_URL}/reviews`);
+      const response = await fetch(`${API_URL}/reviews`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
       const data = await response.json();
+      console.log('Received reviews:', data);
+      
       if (data.success) {
         setReviews(data.reviews);
+      } else {
+        throw new Error(data.message || 'Failed to fetch reviews');
       }
     } catch (error) {
       console.error("Error fetching reviews:", error);
-      toast({
-        title: "Error",
-        description: "Failed to load reviews. Please try again.",
-        variant: "destructive",
-      });
+      // Don't show toast on initial load to avoid annoying users
+      // toast({
+      //   title: "Error",
+      //   description: "Failed to load reviews. Please try again.",
+      //   variant: "destructive",
+      // });
     } finally {
       setLoading(false);
     }
@@ -89,6 +105,9 @@ const ReviewSection = () => {
 
     try {
       setSubmitting(true);
+      console.log('Submitting review to:', `${API_URL}/reviews`);
+      console.log('Form data:', formData);
+      
       const response = await fetch(`${API_URL}/reviews`, {
         method: "POST",
         headers: {
@@ -97,7 +116,16 @@ const ReviewSection = () => {
         body: JSON.stringify(formData),
       });
 
+      console.log('Response status:', response.status);
+      
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Error response:', errorText);
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       const data = await response.json();
+      console.log('Response data:', data);
 
       if (data.success) {
         toast({
@@ -116,13 +144,13 @@ const ReviewSection = () => {
         // Refresh reviews
         fetchReviews();
       } else {
-        throw new Error(data.message);
+        throw new Error(data.message || 'Submission failed');
       }
     } catch (error) {
       console.error("Error submitting review:", error);
       toast({
         title: "Submission Failed",
-        description: "Could not submit your review. Please try again.",
+        description: error instanceof Error ? error.message : "Could not submit your review. Please check your connection.",
         variant: "destructive",
       });
     } finally {
