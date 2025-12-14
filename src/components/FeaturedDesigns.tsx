@@ -1,7 +1,7 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import Autoplay from "embla-carousel-autoplay";
-import gallery1 from "@/assets/gallery-1.png";
+import gallery2 from "@/assets/gallery-2.png";
 import gallery4 from "@/assets/gallery-4.png";
 import gallery6 from "@/assets/gallery-6.png";
 import gallery9 from "@/assets/gallery-9.png";
@@ -11,9 +11,9 @@ const FeaturedDesigns = () => {
   const designs = [
     { 
       id: 1, 
-      src: gallery1, 
-      title: "Bridal Peacock Masterpiece",
-      description: "Intricate peacock motif with zardosi detailing on maroon and royal blue silk"
+      src: gallery2, 
+      title: "Yellow Ari Work Blouse",
+      description: "Beautiful floral embroidery on vibrant yellow silk with traditional Ari work"
     },
     { 
       id: 2, 

@@ -1,4 +1,3 @@
-import gallery1 from "@/assets/gallery-1.png";
 import gallery2 from "@/assets/gallery-2.png";
 import gallery3 from "@/assets/gallery-3.png";
 import gallery4 from "@/assets/gallery-4.png";
@@ -11,16 +10,15 @@ import gallery10 from "@/assets/gallery-10.png";
 
 const Showcase = () => {
   const galleryItems = [
-    { id: 1, src: gallery1, alt: "Intricate bridal blouse with peacock motif and zardosi work" },
-    { id: 2, src: gallery2, alt: "Yellow Ari work blouse with floral embroidery" },
-    { id: 3, src: gallery3, alt: "Maroon blouse with paisley Ari work detailing" },
-    { id: 4, src: gallery4, alt: "Emerald green sleeve with red floral embroidery" },
-    { id: 5, src: gallery5, alt: "Purple and maroon zardosi border patterns" },
-    { id: 6, src: gallery6, alt: "Red bridal blouse with gold bead and stone work" },
-    { id: 7, src: gallery7, alt: "Turquoise fabric with intricate gold thread work" },
-    { id: 8, src: gallery8, alt: "Pink bridal blouse back with paisley motif" },
-    { id: 9, src: gallery9, alt: "Royal blue fabric with gold peacock embroidery" },
-    { id: 10, src: gallery10, alt: "Pink silk with floral Ari work pattern" },
+    { id: 1, src: gallery2, alt: "Yellow Ari work blouse with floral embroidery" },
+    { id: 2, src: gallery3, alt: "Maroon blouse with paisley Ari work detailing" },
+    { id: 3, src: gallery4, alt: "Emerald green sleeve with red floral embroidery" },
+    { id: 4, src: gallery5, alt: "Purple and maroon zardosi border patterns" },
+    { id: 5, src: gallery6, alt: "Red bridal blouse with gold bead and stone work" },
+    { id: 6, src: gallery7, alt: "Turquoise fabric with intricate gold thread work" },
+    { id: 7, src: gallery8, alt: "Pink bridal blouse back with paisley motif" },
+    { id: 8, src: gallery9, alt: "Royal blue fabric with gold peacock embroidery" },
+    { id: 9, src: gallery10, alt: "Pink silk with floral Ari work pattern" },
   ];
 
   return (
@@ -149,16 +147,6 @@ const Showcase = () => {
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             />
             <div className="absolute inset-0 bg-purple-600/0 group-hover:bg-purple-600/30 transition-colors duration-500"></div>
-          </div>
-
-          {/* Item 10 */}
-          <div className="col-span-2 md:col-span-2 lg:col-span-3 row-span-1 group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-amber-500/20 transition-all duration-500 hover:-translate-y-2">
-            <img 
-              src={galleryItems[9].src} 
-              alt={galleryItems[9].alt}
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-amber-600/0 group-hover:bg-amber-600/30 transition-colors duration-500"></div>
           </div>
         </div>
       </div>
