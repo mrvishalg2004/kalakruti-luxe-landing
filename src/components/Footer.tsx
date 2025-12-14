@@ -45,7 +45,7 @@ const Footer = () => {
             </p>
             <div className="flex gap-3">
               <a 
-                href="#" 
+                href="https://www.instagram.com/kalakruti.store/" 
                 className="w-10 h-10 rounded-full bg-white/10 hover:bg-amber-500 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:-translate-y-1"
               >
                 <Instagram className="w-5 h-5" />

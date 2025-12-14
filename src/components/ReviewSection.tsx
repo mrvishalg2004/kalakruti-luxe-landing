@@ -8,7 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
-const API_URL = "http://localhost:3001/api";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001/api";
 
 interface Review {
   _id: string;
