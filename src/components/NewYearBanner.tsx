@@ -1,43 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Sparkles, PartyPopper, X } from "lucide-react";
-
-interface TimeLeft {
-  hours: number;
-  minutes: number;
-  seconds: number;
-}
 
 const NewYearBanner = () => {
   const [isVisible, setIsVisible] = useState(true);
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>({ hours: 0, minutes: 0, seconds: 0 });
-  const [isNewYear, setIsNewYear] = useState(false);
-
-  useEffect(() => {
-    const calculateTimeLeft = () => {
-      const now = new Date();
-      const newYear = new Date(now.getFullYear() + 1, 0, 1, 0, 0, 0);
-      const difference = newYear.getTime() - now.getTime();
-
-      if (difference <= 0) {
-        setIsNewYear(true);
-        return { hours: 0, minutes: 0, seconds: 0 };
-      }
-
-      const hours = Math.floor(difference / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-      return { hours, minutes, seconds };
-    };
-
-    setTimeLeft(calculateTimeLeft());
-
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
 
   if (!isVisible) return null;
 
@@ -45,7 +10,7 @@ const NewYearBanner = () => {
     <>
       {/* Floating Confetti Animation */}
       <div className="fixed inset-0 pointer-events-none z-40 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(50)].map((_, i) => (
           <div
             key={i}
             className="confetti-piece"
@@ -58,7 +23,41 @@ const NewYearBanner = () => {
         ))}
       </div>
 
-      {/* New Year Banner */}
+      {/* Firecracker Effects - Left Side */}
+      <div className="fixed left-4 top-20 pointer-events-none z-40">
+        {[...Array(3)].map((_, i) => (
+          <div
+            key={`left-${i}`}
+            className="firecracker"
+            style={{
+              animationDelay: `${i * 0.8}s`,
+              top: `${i * 60}px`,
+            }}
+          >
+            <div className="firecracker-spark" />
+            <div className="firecracker-burst" />
+          </div>
+        ))}
+      </div>
+
+      {/* Firecracker Effects - Right Side */}
+      <div className="fixed right-4 top-20 pointer-events-none z-40">
+        {[...Array(3)].map((_, i) => (
+          <div
+            key={`right-${i}`}
+            className="firecracker"
+            style={{
+              animationDelay: `${i * 0.8 + 0.4}s`,
+              top: `${i * 60}px`,
+            }}
+          >
+            <div className="firecracker-spark" />
+            <div className="firecracker-burst" />
+          </div>
+        ))}
+      </div>
+
+      {/* Celebration Banner */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-purple-900 via-indigo-900 to-purple-900 border-b border-gold/30 shadow-lg">
         <div className="relative overflow-hidden">
           {/* Animated Background Stars */}
@@ -79,67 +78,37 @@ const NewYearBanner = () => {
 
           <div className="relative max-w-7xl mx-auto px-4 py-3 sm:py-4">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6">
-              {/* Left Decoration */}
+              {/* Left Decoration - Party Poppers */}
               <div className="hidden sm:flex items-center gap-2">
-                <PartyPopper className="w-5 h-5 text-yellow-400 animate-bounce" />
-                <Sparkles className="w-4 h-4 text-pink-400 animate-pulse" />
+                <span className="text-2xl animate-bounce">🎊</span>
+                <PartyPopper className="w-6 h-6 text-yellow-400 animate-bounce" />
+                <span className="text-xl animate-wiggle">🧨</span>
               </div>
 
-              {/* Main Content */}
-              <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
-                {isNewYear ? (
-                  <div className="flex items-center gap-3">
-                    <span className="text-2xl sm:text-3xl">🎆</span>
-                    <h2 className="font-serif text-xl sm:text-2xl font-bold bg-gradient-to-r from-yellow-300 via-amber-200 to-yellow-300 bg-clip-text text-transparent animate-shimmer-slow">
-                      Happy New Year 2026!
-                    </h2>
-                    <span className="text-2xl sm:text-3xl">🎉</span>
-                  </div>
-                ) : (
-                  <>
-                    <div className="flex items-center gap-2">
-                      <span className="text-lg sm:text-xl">✨</span>
-                      <span className="text-white/90 text-sm sm:text-base font-medium">
-                        New Year Countdown
-                      </span>
-                    </div>
-
-                    {/* Countdown Timer */}
-                    <div className="flex items-center gap-1 sm:gap-2">
-                      <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-lg px-2 sm:px-3 py-1 sm:py-2 border border-white/20">
-                        <span className="text-xl sm:text-2xl font-bold text-yellow-400 font-mono tabular-nums">
-                          {String(timeLeft.hours).padStart(2, "0")}
-                        </span>
-                        <span className="text-xs text-white/60 ml-1">HRS</span>
-                      </div>
-                      <span className="text-yellow-400 text-xl font-bold animate-pulse">:</span>
-                      <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-lg px-2 sm:px-3 py-1 sm:py-2 border border-white/20">
-                        <span className="text-xl sm:text-2xl font-bold text-yellow-400 font-mono tabular-nums">
-                          {String(timeLeft.minutes).padStart(2, "0")}
-                        </span>
-                        <span className="text-xs text-white/60 ml-1">MIN</span>
-                      </div>
-                      <span className="text-yellow-400 text-xl font-bold animate-pulse">:</span>
-                      <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-lg px-2 sm:px-3 py-1 sm:py-2 border border-white/20">
-                        <span className="text-xl sm:text-2xl font-bold text-yellow-400 font-mono tabular-nums">
-                          {String(timeLeft.seconds).padStart(2, "0")}
-                        </span>
-                        <span className="text-xs text-white/60 ml-1">SEC</span>
-                      </div>
-                    </div>
-
-                    <span className="text-white/80 text-sm hidden lg:block">
-                      until 2026! 🎊
-                    </span>
-                  </>
-                )}
+              {/* Main Content - Celebration Message */}
+              <div className="flex items-center gap-3">
+                <span className="text-2xl sm:text-3xl animate-pulse">🎆</span>
+                <h2 className="font-serif text-xl sm:text-2xl font-bold bg-gradient-to-r from-yellow-300 via-amber-200 to-yellow-300 bg-clip-text text-transparent animate-shimmer-slow">
+                  Happy New Year 2026!
+                </h2>
+                <span className="text-2xl sm:text-3xl animate-bounce">🎉</span>
               </div>
 
-              {/* Right Decoration */}
+              {/* Right Decoration - Firecrackers & Confetti */}
               <div className="hidden sm:flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-pink-400 animate-pulse" />
-                <PartyPopper className="w-5 h-5 text-yellow-400 animate-bounce" style={{ animationDelay: "0.5s" }} />
+                <span className="text-xl animate-wiggle" style={{ animationDelay: "0.2s" }}>🧨</span>
+                <PartyPopper className="w-6 h-6 text-pink-400 animate-bounce" style={{ animationDelay: "0.3s" }} />
+                <span className="text-2xl animate-bounce" style={{ animationDelay: "0.5s" }}>🎊</span>
               </div>
+            </div>
+
+            {/* Celebration Icons Row */}
+            <div className="flex justify-center items-center gap-4 mt-2 sm:hidden">
+              <span className="text-xl animate-bounce">🎊</span>
+              <span className="text-xl animate-wiggle">🧨</span>
+              <Sparkles className="w-5 h-5 text-yellow-400 animate-pulse" />
+              <span className="text-xl animate-wiggle" style={{ animationDelay: "0.3s" }}>🧨</span>
+              <span className="text-xl animate-bounce" style={{ animationDelay: "0.2s" }}>🎊</span>
             </div>
 
             {/* Close Button */}
@@ -158,7 +127,8 @@ const NewYearBanner = () => {
       </div>
 
       {/* Styles */}
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @keyframes confetti-fall {
           0% {
             transform: translateY(-100vh) rotate(0deg);
@@ -190,10 +160,45 @@ const NewYearBanner = () => {
           }
         }
 
+        @keyframes wiggle {
+          0%, 100% {
+            transform: rotate(-10deg);
+          }
+          50% {
+            transform: rotate(10deg);
+          }
+        }
+
+        @keyframes firecracker-explode {
+          0% {
+            transform: scale(0);
+            opacity: 1;
+          }
+          50% {
+            transform: scale(1.5);
+            opacity: 1;
+          }
+          100% {
+            transform: scale(2);
+            opacity: 0;
+          }
+        }
+
+        @keyframes spark-rise {
+          0% {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(-30px) scale(0);
+            opacity: 0;
+          }
+        }
+
         .confetti-piece {
           position: absolute;
-          width: 10px;
-          height: 10px;
+          width: 12px;
+          height: 12px;
           animation: confetti-fall linear infinite;
         }
 
@@ -212,6 +217,18 @@ const NewYearBanner = () => {
           border-radius: 2px;
         }
 
+        .confetti-piece:nth-child(4n) {
+          background: linear-gradient(135deg, #ef4444, #dc2626);
+          clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+
+        .confetti-piece:nth-child(5n) {
+          background: linear-gradient(135deg, #a855f7, #7c3aed);
+          width: 8px;
+          height: 16px;
+          border-radius: 4px;
+        }
+
         .animate-twinkle {
           animation: twinkle 2s ease-in-out infinite;
         }
@@ -219,6 +236,61 @@ const NewYearBanner = () => {
         .animate-shimmer-slow {
           background-size: 200% auto;
           animation: shimmer-slow 3s linear infinite;
+        }
+
+        .animate-wiggle {
+          animation: wiggle 0.5s ease-in-out infinite;
+        }
+
+        .firecracker {
+          position: relative;
+          width: 40px;
+          height: 40px;
+        }
+
+        .firecracker-spark {
+          position: absolute;
+          width: 6px;
+          height: 6px;
+          background: radial-gradient(circle, #fbbf24, #f59e0b);
+          border-radius: 50%;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          animation: spark-rise 1s ease-out infinite;
+          box-shadow: 0 0 10px #fbbf24, 0 0 20px #f59e0b;
+        }
+
+        .firecracker-burst {
+          position: absolute;
+          width: 30px;
+          height: 30px;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          background: radial-gradient(circle, rgba(251, 191, 36, 0.8) 0%, rgba(245, 158, 11, 0.4) 40%, transparent 70%);
+          border-radius: 50%;
+          animation: firecracker-explode 1.5s ease-out infinite;
+        }
+
+        .firecracker-burst::before,
+        .firecracker-burst::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: radial-gradient(circle, rgba(236, 72, 153, 0.6) 0%, transparent 60%);
+          border-radius: 50%;
+          animation: firecracker-explode 1.5s ease-out infinite;
+        }
+
+        .firecracker-burst::before {
+          animation-delay: 0.2s;
+        }
+
+        .firecracker-burst::after {
+          animation-delay: 0.4s;
+          background: radial-gradient(circle, rgba(139, 92, 246, 0.6) 0%, transparent 60%);
         }
       `}} />
     </>
