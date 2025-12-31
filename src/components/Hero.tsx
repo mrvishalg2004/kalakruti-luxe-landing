@@ -18,9 +18,9 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
-        <img 
-          src={heroBackground} 
-          alt="Hero Background" 
+        <img
+          src={heroBackground}
+          alt="Hero Background"
           className="w-full h-full object-cover"
           loading="eager"
           fetchPriority="high"
@@ -30,12 +30,19 @@ const Hero = () => {
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-center px-8 py-32">
+      <div className="relative z-10 flex flex-col items-center justify-center text-center px-8 py-32 pt-44 sm:pt-40">
+        {/* New Year Greeting Badge */}
+        <div className="new-year-badge mb-6 px-6 py-2 rounded-full bg-gradient-to-r from-amber-500/20 via-purple-500/20 to-pink-500/20 border border-amber-400/30 backdrop-blur-sm">
+          <span className="text-sm md:text-base font-medium bg-gradient-to-r from-amber-300 via-rose-300 to-amber-300 bg-clip-text text-transparent">
+            ✨ Wishing You a Happy New Year 2026! ✨
+          </span>
+        </div>
+
         {/* Main Logo */}
         <div className="logo-container">
-          <img 
-            src={logo} 
-            alt="Kalakruti Foundation" 
+          <img
+            src={logo}
+            alt="Kalakruti Foundation"
             className="w-auto h-48 md:h-64 lg:h-80 object-contain mb-12"
             loading="eager"
             fetchPriority="high"
@@ -60,7 +67,8 @@ const Hero = () => {
         <ChevronDown className="w-8 h-8 text-white/80" strokeWidth={1.5} />
       </div>
 
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @keyframes fadeInScale {
           0% {
             opacity: 0;
@@ -93,6 +101,24 @@ const Hero = () => {
             box-shadow: 0 0 30px rgba(251, 191, 36, 0.8), 0 0 60px rgba(251, 191, 36, 0.5), 0 0 90px rgba(251, 191, 36, 0.3);
           }
         }
+
+        @keyframes badge-glow {
+          0%, 100% {
+            box-shadow: 0 0 10px rgba(251, 191, 36, 0.3), 0 0 20px rgba(168, 85, 247, 0.2);
+          }
+          50% {
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.5), 0 0 40px rgba(168, 85, 247, 0.3);
+          }
+        }
+
+        @keyframes badge-shimmer {
+          0% {
+            background-position: -200% center;
+          }
+          100% {
+            background-position: 200% center;
+          }
+        }
         
         .logo-container img {
           animation: fadeInScale 1.5s ease-out forwards;
@@ -108,6 +134,15 @@ const Hero = () => {
 
         .download-button-wrapper button:hover {
           animation: none;
+        }
+
+        .new-year-badge {
+          animation: badge-glow 3s ease-in-out infinite, fadeInScale 1s ease-out;
+        }
+
+        .new-year-badge span {
+          background-size: 200% auto;
+          animation: badge-shimmer 4s linear infinite;
         }
       `}} />
     </section>

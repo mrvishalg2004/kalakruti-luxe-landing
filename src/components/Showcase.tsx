@@ -1,31 +1,33 @@
-import gallery2 from "@/assets/gallery-2.png";
-import gallery3 from "@/assets/gallery-3.png";
-import gallery4 from "@/assets/gallery-4.png";
-import gallery5 from "@/assets/gallery-5.png";
-import gallery6 from "@/assets/gallery-6.png";
-import gallery7 from "@/assets/gallery-7.png";
-import gallery8 from "@/assets/gallery-8.png";
-import gallery9 from "@/assets/gallery-9.png";
-import gallery10 from "@/assets/gallery-10.png";
+import design1 from "@/assets/design-1.jpeg";
+import design2 from "@/assets/design-2.jpeg";
+import design3 from "@/assets/design-3.jpeg";
+import design4 from "@/assets/design-4.jpeg";
+import design5 from "@/assets/design-5.jpeg";
+import design6 from "@/assets/design-6.jpeg";
+import design7 from "@/assets/design-7.jpeg";
+import design8 from "@/assets/design-8.jpeg";
+import design9 from "@/assets/design-9.jpeg";
+import design10 from "@/assets/design-10.jpeg";
 
 const Showcase = () => {
   const galleryItems = [
-    { id: 1, src: gallery2, alt: "Yellow Ari work blouse with floral embroidery" },
-    { id: 2, src: gallery3, alt: "Maroon blouse with paisley Ari work detailing" },
-    { id: 3, src: gallery4, alt: "Emerald green sleeve with red floral embroidery" },
-    { id: 4, src: gallery5, alt: "Purple and maroon zardosi border patterns" },
-    { id: 5, src: gallery6, alt: "Red bridal blouse with gold bead and stone work" },
-    { id: 6, src: gallery7, alt: "Turquoise fabric with intricate gold thread work" },
-    { id: 7, src: gallery8, alt: "Pink bridal blouse back with paisley motif" },
-    { id: 8, src: gallery9, alt: "Royal blue fabric with gold peacock embroidery" },
-    { id: 9, src: gallery10, alt: "Pink silk with floral Ari work pattern" },
+    { id: 1, src: design1, alt: "Exquisite Ari work embroidery design 1" },
+    { id: 2, src: design2, alt: "Handcrafted Ari work embroidery design 2" },
+    { id: 3, src: design3, alt: "Premium Ari work embroidery design 3" },
+    { id: 4, src: design4, alt: "Traditional Ari work embroidery design 4" },
+    { id: 5, src: design5, alt: "Elegant Ari work embroidery design 5" },
+    { id: 6, src: design6, alt: "Beautiful Ari work embroidery design 6" },
+    { id: 7, src: design7, alt: "Intricate Ari work embroidery design 7" },
+    { id: 8, src: design8, alt: "Stunning Ari work embroidery design 8" },
+    { id: 9, src: design9, alt: "Gorgeous Ari work embroidery design 9" },
+    { id: 10, src: design10, alt: "Luxurious Ari work embroidery design 10" },
   ];
 
   return (
     <section className="relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Dynamic Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-rose-50 via-amber-50 to-purple-50"></div>
-      
+
       {/* Floating Shapes */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-amber-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
       <div className="absolute top-40 right-10 w-72 h-72 bg-rose-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
@@ -51,8 +53,8 @@ const Showcase = () => {
         <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-4 auto-rows-[200px]">
           {/* Large Feature - Item 1 */}
           <div className="col-span-4 md:col-span-4 lg:col-span-6 row-span-2 group relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-amber-500/20 transition-all duration-500">
-            <img 
-              src={galleryItems[0].src} 
+            <img
+              src={galleryItems[0].src}
               alt={galleryItems[0].alt}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             />
@@ -66,8 +68,8 @@ const Showcase = () => {
 
           {/* Item 2 */}
           <div className="col-span-2 md:col-span-2 lg:col-span-3 row-span-1 group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-rose-500/20 transition-all duration-500 hover:-translate-y-2">
-            <img 
-              src={galleryItems[1].src} 
+            <img
+              src={galleryItems[1].src}
               alt={galleryItems[1].alt}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             />
@@ -76,8 +78,8 @@ const Showcase = () => {
 
           {/* Item 3 */}
           <div className="col-span-2 md:col-span-2 lg:col-span-3 row-span-1 group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-purple-500/20 transition-all duration-500 hover:-translate-y-2">
-            <img 
-              src={galleryItems[2].src} 
+            <img
+              src={galleryItems[2].src}
               alt={galleryItems[2].alt}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             />
@@ -86,8 +88,8 @@ const Showcase = () => {
 
           {/* Item 4 - Tall */}
           <div className="col-span-2 md:col-span-2 lg:col-span-3 row-span-2 group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-amber-500/20 transition-all duration-500 hover:-translate-y-2">
-            <img 
-              src={galleryItems[3].src} 
+            <img
+              src={galleryItems[3].src}
               alt={galleryItems[3].alt}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             />
@@ -96,8 +98,8 @@ const Showcase = () => {
 
           {/* Item 5 */}
           <div className="col-span-2 md:col-span-2 lg:col-span-3 row-span-1 group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-rose-500/20 transition-all duration-500 hover:-translate-y-2">
-            <img 
-              src={galleryItems[4].src} 
+            <img
+              src={galleryItems[4].src}
               alt={galleryItems[4].alt}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             />
@@ -106,8 +108,8 @@ const Showcase = () => {
 
           {/* Large Feature - Item 6 */}
           <div className="col-span-4 md:col-span-4 lg:col-span-6 row-span-2 group relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-purple-500/20 transition-all duration-500">
-            <img 
-              src={galleryItems[5].src} 
+            <img
+              src={galleryItems[5].src}
               alt={galleryItems[5].alt}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             />
@@ -121,8 +123,8 @@ const Showcase = () => {
 
           {/* Item 7 */}
           <div className="col-span-2 md:col-span-2 lg:col-span-3 row-span-1 group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-amber-500/20 transition-all duration-500 hover:-translate-y-2">
-            <img 
-              src={galleryItems[6].src} 
+            <img
+              src={galleryItems[6].src}
               alt={galleryItems[6].alt}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             />
@@ -131,8 +133,8 @@ const Showcase = () => {
 
           {/* Item 8 */}
           <div className="col-span-2 md:col-span-2 lg:col-span-3 row-span-1 group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-rose-500/20 transition-all duration-500 hover:-translate-y-2">
-            <img 
-              src={galleryItems[7].src} 
+            <img
+              src={galleryItems[7].src}
               alt={galleryItems[7].alt}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             />
@@ -141,12 +143,22 @@ const Showcase = () => {
 
           {/* Item 9 */}
           <div className="col-span-2 md:col-span-2 lg:col-span-3 row-span-1 group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-purple-500/20 transition-all duration-500 hover:-translate-y-2">
-            <img 
-              src={galleryItems[8].src} 
+            <img
+              src={galleryItems[8].src}
               alt={galleryItems[8].alt}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             />
             <div className="absolute inset-0 bg-purple-600/0 group-hover:bg-purple-600/30 transition-colors duration-500"></div>
+          </div>
+
+          {/* Item 10 */}
+          <div className="col-span-2 md:col-span-4 lg:col-span-3 row-span-1 group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-amber-500/20 transition-all duration-500 hover:-translate-y-2">
+            <img
+              src={galleryItems[9].src}
+              alt={galleryItems[9].alt}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-amber-600/0 group-hover:bg-amber-600/30 transition-colors duration-500"></div>
           </div>
         </div>
       </div>
